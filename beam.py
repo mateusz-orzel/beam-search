@@ -1,12 +1,11 @@
 import numpy as np
 import math
-import heapq
 
 vocab = {"A":[0.12, 0.09, 0.82], "B":[0.21, 0.37, 0.92], "C":[0.11, 0.9, 0.01] , "<EOS>": [0.01, 0.11, 0.94]}
 
 def beamSearch(vocab, beam_width, size):
     
-    arr = [[1, []] for _ in range(len(vocab))]
+    arr = [[1, []]]
 
     for i in range(size):
         helper = []
@@ -19,7 +18,7 @@ def beamSearch(vocab, beam_width, size):
                     helper.append([p*vocab[x][i],sentence+[x]])
 
         helper.sort()
-        helper[-beam_width:]
+        helper = helper[-beam_width:]
         arr = helper
 
     return arr[-1]
