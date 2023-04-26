@@ -5,7 +5,7 @@ vocab = {"A":[0.12, 0.09, 0.82], "B":[0.21, 0.37, 0.92], "C":[0.11, 0.9, 0.01] ,
 
 def beamSearch(vocab, beam_width, size):
     
-    arr = [[1, []]]
+    arr = [[1, ["<SOS>"]]]
 
     for i in range(size):
         helper = []
